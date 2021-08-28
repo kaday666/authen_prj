@@ -1,0 +1,173 @@
+@import url(https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Raleway:wght@100;300;400&display=swap);
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: #1b1e23;
+}
+
+.pt {
+  font-family: "PT Sans Narrow", sans-serif;
+}
+
+.rl {
+  font-family: "Raleway", sans-serif;
+}
+
+a:link,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+btn {
+  border: none;
+  border-radius: 0;
+}
+
+.form {
+  background-color: #361999;
+  padding: 2rem;
+  width: 40rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1rem;
+}
+
+.form > div label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: #78FFF1;
+}
+
+.form > div input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  border-right: 3px solid #FF6495;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 3px solid #FF6495;
+  transition: border 0.3s;
+  background-color: #e6e6e6;
+}
+
+.form > div input:focus {
+  outline: none;
+  border: 3px solid #FF6495;
+  background-color: #f7f7f7;
+}
+
+.from > * {
+  margin-bottom: 5rem;
+}
+
+.form-btn {
+  padding: 0.8rem 2.5rem;
+  align-self: center;
+  border-radius: 1.8rem;
+  border: none;
+  background-color: #FF6495;
+  font-size: 1.6rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.form-btn:hover {
+  background-color: transparent;
+  border: 2px solid #FF6495;
+}
+
+.nav {
+  max-width: 100%;
+  background-color: #361999;
+  color: #78FFF1;
+  padding: 1.5rem 0;
+}
+.nav__warp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+.nav__head {
+  font-family: inherit;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 5px;
+  position: relative;
+}
+.nav__head::after {
+  content: "";
+  position: absolute;
+  width: 95%;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: #FF6495;
+}
+.nav__list {
+  display: flex;
+  list-style: none;
+}
+.nav__list__item__link:link, .nav__list__item__link:visited {
+  font-size: 2rem;
+  color: #23ffe8;
+  transition: color all 0.2s;
+}
+.nav__list__item {
+  margin: 0 2rem;
+}
+.nav__list__item__link:hover, .nav__list__item__link:focus {
+  outline: none;
+  color: #defffc;
+}
+
+.login-sec {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-sec {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-form {
+  height: 40rem;
+}
+
+.register-form > div:last-of-type input {
+  border-radius: 0;
+  border: none;
+  border: 3px solid #FF6495;
+}

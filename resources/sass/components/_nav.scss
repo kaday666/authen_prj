@@ -1,0 +1,56 @@
+@use '../abstract' as a;
+
+.nav {
+    max-width: 100%;
+    background-color: a.$co-pri;
+    color: a.$co-sec;
+    padding: 1.5rem 0;
+
+    &__warp{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        max-width:70rem;
+        margin: 0 auto;
+    }
+    &__head{
+        font-family: inherit;
+        font-size: 3rem;
+        font-weight: 300;
+        letter-spacing: 5px;
+        position: relative;
+        // text-align: center;
+    }
+    &__head::after{
+        content: "";
+        position: absolute;
+        width: 95%;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        background-color:a.$co-third;
+    }
+    &__list{
+        display: flex;
+        list-style: none;
+    }
+   
+    &__list__item__link:link,
+    &__list__item__link:visited{
+        font-size: 2rem;
+        color: a.$co-sec-br;
+        transition: color all 0.2s;
+    }
+    &__list__item{
+        margin: 0 2rem;
+
+        &__link:hover,
+        &__link:focus{
+            outline: none;
+            color: a.$co-sec-li;
+        }
+    }
+    
+
+}

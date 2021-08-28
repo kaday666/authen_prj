@@ -1,0 +1,20 @@
+@use  '../abstract/color' as v;
+
+.register-sec{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-form{
+    height: 40rem;
+}
+.register-form > div:last-of-type input{
+    // background-color:transparent;
+    border-radius: 0;
+    border: none ;
+    // border-top: 3px solid v.$co-thrid;   
+    border: 3px solid v.$co-third;
+
+}

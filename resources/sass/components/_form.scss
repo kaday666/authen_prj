@@ -1,0 +1,70 @@
+@use  '../abstract/index' as a;
+
+.form{
+   
+    background-color: a.$co-pri;
+    padding: 2rem;
+    width: 40rem;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1rem;
+    // align-items: center;
+    
+}
+
+.form > div label{
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: a.$co-sec;
+    // font-weight: 200;
+    
+}
+.form > div input{
+    width: 100%;
+    // max-width: 80%;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    border-right: 3px solid a.$co-third;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid a.$co-third;
+    transition: border 0.3s;
+    background-color: #e6e6e6;
+}   
+.form > div input:focus{
+    outline: none   ;
+    border: 3px solid a.$co-third;
+    background-color: #f7f7f7;
+}
+.from > * {
+    margin-bottom: 5rem;
+    
+}
+.form-btn{
+    padding: 0.8rem 2.5rem;
+    align-self: center;
+    border-radius: 1.8rem;
+    border: none;
+    background-color: a.$co-third;
+    // border: 3px solid a.$co-sec;
+    font-size: 1.6rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid transparent;
+    transition: all .2s;
+}
+.form-btn:hover{
+    background-color: transparent;
+    border:2px solid a.$co-third;
+}
+
+
