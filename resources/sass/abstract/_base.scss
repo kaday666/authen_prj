@@ -13,7 +13,11 @@ html{
 }
 body{
     font-family: 'Raleway', sans-serif;
-    background-color: #1b1e23;
+    // background-color: #1b1e23;s
+    background-image: url("/img/back.jpg");
+    background-position: center;
+    background-size: cover;
+
 }
 
 .pt{

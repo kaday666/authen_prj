@@ -15,12 +15,17 @@
             </div>
             <ul class="nav__list">
                 <li class="nav__list__item">
-                    <a href="#" class="nav__list__item__link">
+                    <a href="{{route("index")}}" class="nav__list__item__link">
+                        home
+                    </a>
+                </li>
+                <li class="nav__list__item">
+                    <a href="{{route("login")}}" class="nav__list__item__link">
                         login
                     </a>
                 </li>
                 <li class="nav__list__item">
-                    <a class="nav__list__item__link" href="#">
+                    <a class="nav__list__item__link" href="{{route("register")}}">
                         Register
                     </a>
                 </li>

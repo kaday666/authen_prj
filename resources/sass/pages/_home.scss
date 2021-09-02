@@ -1,0 +1,28 @@
+@use '../abstract/index' as c;
+
+
+.posts{
+    // background-color: white ;
+    width: 100%;
+    max-width: 80rem;
+    margin: 1rem auto;
+    min-height: 70vh;
+}
+.header{
+  
+    background-color: c.$co-pri;
+    color: c.$co-sec;
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem 2rem;
+    border-left: 5px solid c.$co-third;
+    border-right: 5px solid c.$co-third;
+
+    // width: 20rem;
+    // margin: 0 auto;
+    // width: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+ 
+    
+}
