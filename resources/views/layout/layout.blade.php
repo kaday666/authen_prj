@@ -14,25 +14,44 @@
                 AUTH
             </div>
             <ul class="nav__list">
+                 <li class="nav__list__item">
+                        <a href="{{route("index")}}" class="nav__list__item__link">
+                            home
+                        </a>
+                    </li>
                 <li class="nav__list__item">
-                    <a href="{{route("index")}}" class="nav__list__item__link">
-                        home
-                    </a>
-                </li>
-                <li class="nav__list__item">
-                    <a href="{{route("login")}}" class="nav__list__item__link">
-                        login
+                    <a href="{{route("create")}}" class="nav__list__item__link">
+                            create post
                     </a>
                 </li>
                 <li class="nav__list__item">
                     <a class="nav__list__item__link" href="{{route("register")}}">
-                        Register
+                            Admin Control
                     </a>
                 </li>
+                <li class="nav__list__item">
+                    <a class="nav__list__item__link" href="{{route("register")}}">
+                            Contant us
+                    </a>
+                </li>
+                <div class="dropdown ">
+                    <button class="dropdown-btn">
+                            username
+                            <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-list ">
+                        <a class="dropdown-link" href="#">Profile</a>
+                        <a href="#"  class="dropdown-link">logout</a>
+                    </div>
+                </div>
+          
             </ul>
         </div>
     </nav>
 
     @yield('content')
+
+    <script src="/js/script.js"></script>
+    <script src="https://use.fontawesome.com/02cb020418.js"></script>
 </body>
 </html>

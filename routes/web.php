@@ -16,7 +16,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class,"index"])->name("index");
+
+
+//Users
+Route::get('/user/createPost',[PageController::class,"createPost"])->name("create");
+
+
+
+
+
+
+//auth
 Route::get('/login', [AuthController::class,"login"])->name("login");
 Route::get('/register', [AuthController::class,"register"])->name("register");
+
 
 

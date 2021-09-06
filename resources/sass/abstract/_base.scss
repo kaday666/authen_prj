@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Raleway:wght@100;300;400&display=swap');
-
+// @use  '_color.scss' as c;
 *,
 *::before,
 *::after{
@@ -13,10 +13,10 @@ html{
 }
 body{
     font-family: 'Raleway', sans-serif;
-    // background-color: #1b1e23;s
-    background-image: url("/img/back.jpg");
-    background-position: center;
-    background-size: cover;
+    background-color: #4b23d3;
+    // background-image: url("/img/ds.jp
+    // background-position: center;
+    // background-size: cover;
 
 }
 
