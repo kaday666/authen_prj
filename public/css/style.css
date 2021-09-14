@@ -195,16 +195,24 @@ btn {
 
 .dropdown-list {
   display: none;
+  opacity: 0;
   border-radius: 1rem;
   margin-top: 1rem;
   text-align: center;
   position: absolute;
-  transition: display 0.3s ease;
+  top: -4.3rem;
+  transform: translateY(100px);
+  transition: all 0.3s ease;
+  width: 20rem;
   background-color: #361999;
 }
 
 .dropdown.active .dropdown-list {
   display: block;
+}
+
+.dropdown.show .dropdown-list {
+  opacity: 1;
 }
 
 .dropdown.active i {
@@ -219,6 +227,12 @@ btn {
   padding: 2rem;
   font-size: 1.8rem;
   border: 3px solid #defffc;
+}
+
+.dropdown-link:hover,
+.dropdown-link:active {
+  background-color: #23ffe8;
+  color: #FF6495;
 }
 
 .card {
@@ -347,4 +361,208 @@ btn {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.create-sec {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createpost-form {
+  height: 50rem;
+}
+
+.createpost-form textarea {
+  width: 100%;
+  height: 20rem;
+  padding: 0.5rem;
+  border: 3px solid #FF6495;
+}
+
+.createpost-form textarea:focus {
+  outline: none;
+}
+
+.profile-sec {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contant-sec {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contant-form {
+  display: flex;
+  width: 100%;
+  max-width: 80rem;
+}
+
+.contant-form-img {
+  flex-basis: 50%;
+  border-radius: 2rem;
+  overflow: hidden;
+  margin-right: 1rem;
+}
+
+.contant-form-img img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
+.contant-from from {
+  flex: 1;
+}
+
+.fl-container {
+  width: 100%;
+  display: flex;
+  margin: 1rem;
+}
+
+.btn-table {
+  background-color: transparent;
+  border-radius: 0%;
+  color: #4b23d3;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.8rem;
+}
+
+.btn-update {
+  border: 3px solid #4b23d3;
+}
+
+.btn-del {
+  border: 3px solid #FF6495;
+}
+
+.side-nav {
+  flex: 0 0 25%;
+  background-color: #361999;
+  list-style: none;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 1rem;
+}
+.side-nav__item {
+  width: 100%;
+}
+.side-nav__item a:link, .side-nav__item a:visited {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: #78FFF1;
+  border: 1px solid #78FFF1;
+}
+
+.admin-do {
+  flex: 1;
+  padding-left: 0.5rem;
+}
+
+table {
+  border: 1px solid #361999;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  table-layout: fixed;
+  font-size: 2rem;
+  color: #361999;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
+}
+
+table tr {
+  background-color: #78FFF1;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+}
+
+table th {
+  color: #4b23d3;
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+}
+
+table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 800px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  .fl-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }

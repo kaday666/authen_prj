@@ -1,0 +1,30 @@
+.contant-sec{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: wheat;
+}
+.contant-form{
+    display: flex;
+    width: 100%;
+    max-width: 80rem;
+    
+}
+.contant-form-img{
+    // display: inline-block;
+    flex-basis: 50%;
+    border-radius: 2rem;
+    overflow: hidden;
+    // max-width: 100%;
+    margin-right: 1rem;
+}
+.contant-form-img img{
+    max-width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+.contant-from from{
+    flex: 1;
+}

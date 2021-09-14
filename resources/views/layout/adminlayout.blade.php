@@ -51,21 +51,28 @@
         </div>
     </nav>
 
-    @yield('content')
+
+
+    <div class="fl-container">
+        <ul class="side-nav"> 
+            <li class="side-nav__item">
+                <a href="{{route("admin.manage_premium_user")}}" >Manage premium user</a>
+            </li>
+            <li class="side-nav__item">
+                <a href="{{route("admin.manage_premium_user")}}" >Contant messages</a>
+            </li>
+        </ul>
+        <div class="admin-do">
+            @yield('content')
+        </div>
+    </div>
+
 
 
     
     <script src="https://use.fontawesome.com/02cb020418.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <script src="/js/script.js"></script>
-    <script>
-        @if(Session("message"))
-        let message = "{{Session("message")}}"
-        alert(message);
-         @endif
-
-
-        
-    </script>
+    
 </body>
 </html>

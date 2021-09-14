@@ -3,6 +3,7 @@
 
 
 @section('content')
+
         <main>
             <section class="posts">
                 <h2 class="header">
@@ -116,4 +117,5 @@
                 </div>
             </section>
         </main>
+       
 @endsection

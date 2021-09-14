@@ -1,0 +1,21 @@
+@use  '../abstract/color' as v;
+
+.create-sec{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.createpost-form{
+    height: 50rem;
+}
+.createpost-form textarea{
+    width: 100%;
+    height: 20rem;
+    padding: 0.5rem;
+    border: 3px solid v.$co-third;
+}
+.createpost-form textarea:focus{
+    outline: none;
+}

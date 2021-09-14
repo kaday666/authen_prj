@@ -12,4 +12,15 @@ class PageController extends Controller
     public function createPost(){
         return view('user.create');
     }
+    public function profile(){
+        return view('user.profile');
+    }
+    public function contantus(){
+        return view('user.contantus');
+    }
+    public function post(){
+        return redirect()->route("index")->with("message","post uploaded");
+    }
+   
+    
 }

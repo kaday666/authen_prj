@@ -5,8 +5,12 @@ var __webpack_exports__ = {};
   \********************************/
 var dropdown = document.querySelector(".dropdown");
 var dropbtn = document.querySelector(".dropdown-btn");
-dropbtn.addEventListener("click", function () {
+var droplist = document.querySelector(".dropdown-list");
+dropdown.addEventListener("click", function () {
   dropdown.classList.toggle("active");
+  setInterval(function () {
+    dropdown.classList.add("show");
+  }, 300);
 });
 /******/ })()
 ;
