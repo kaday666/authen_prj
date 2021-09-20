@@ -1,0 +1,56 @@
+@use  '../abstract/color' as v;
+
+.showpost-sec{
+    width: 100%;
+    height: 80vh;
+    
+    // background-color: black;
+}
+.showpost{
+    
+    width: 100%;
+    margin: 0 auto;
+    max-width: 60rem;
+    color: white;
+    padding: 0 1rem;
+    // background-color: orangered;
+}
+.showpost .showpost-img{
+    width: 100%;
+    object-fit: contain;
+    border-radius:1rem;
+}
+.showpost p{
+    font-size: 2rem;
+}
+.showpost p ,.showpost h1 {
+    margin: 2rem 0;
+    
+}
+.showpost .author{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgba(255,255,255,0.8);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.btns .btn-edit,
+.btn-delete{
+    font-size: 1.6rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    color: v.$co-sec-br;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 0 0.5rem;
+   
+}
+.btn-edit{
+    background-color: v.$co-pri-br;
+}
+.btn-delete{
+    background-color: v.$co-sec-li;
+    color: v.$co-pri-br;
+}
