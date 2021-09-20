@@ -10,6 +10,7 @@
 
 </head>
 <body>
+   
     <nav class="nav"> 
         <div class="nav__warp">
             <div class="nav__head pt">
@@ -36,14 +37,26 @@
                             Contant us
                     </a>
                 </li>
+                <li class="nav__list__item">
+                    <a class="nav__list__item__link" href="{{route("contantus")}}">
+                            posts
+                    </a>
+                </li>
                 <ul class="dropdown ">
                     <button class="dropdown-btn">
-                            username
+                           
+                            @if (auth()->user())
+                            <img src="{{asset('img/profiles/'.auth()->user()->image)}}" alt="">
+                                <span>{{auth()->user()->name}}</span>
+                            @else
+                                <img src="{{asset('img/empty.png')}}" alt="">
+                               <span>Anon</span>
+                            @endif
                             <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-list ">
                         <a class="dropdown-link" href="{{route("profile")}}">Profile</a>
-                        <a href="#"  class="dropdown-link">logout</a>
+                        <a href="{{route("logout")}}"  class="dropdown-link">logout</a>
                     </div>
                 </ul>
           
@@ -56,16 +69,44 @@
 
     
     <script src="https://use.fontawesome.com/02cb020418.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/js/script.js"></script>
-    <script>
-        @if(Session("message"))
-        let message = "{{Session("message")}}"
-        alert(message);
+    
+
+         @if (Session("message"))
+        <script>swal("Account created!", "now you can post article", "success");
+        </script>
+         @endif
+         
+         @if (Session("complete"))
+        <script>swal("Account successfully logined!", "now you can post article", "success");
+        </script>
          @endif
 
+         @if (Session("success"))
+         <script>
+         swal("Account Info successfully updated!", "now you can enjoy", "success");
+         </script>
+          @endif
 
-        
-    </script>
+          @if (Session("password"))
+          <script>
+          swal("Account password updated!", "plz remember your password", "success");
+          </script>
+           @endif
+          
+           @if (Session("postdel"))
+           <script>
+           swal("yay!", "post deleted", "success");
+           </script>
+            @endif
+            @if (Session("errordel"))
+            <script>
+            swal("nah!", "only author and admin can delete the post", "fail");
+            </script>
+             @endif
+  
+
+
 </body>
 </html>

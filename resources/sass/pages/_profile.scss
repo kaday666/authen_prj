@@ -6,3 +6,17 @@
     justify-content: center;
     align-items: center;
 }
+.form__password {
+    margin: 2rem 0;
+}
+.form__password img{
+    width: 13rem;
+    height: 10rem;
+    object-fit: cover;
+    margin-top: 1rem;
+    border-radius: 2rem;
+}
+.profile .form-btn{
+    align-self: flex-end;
+    transform: translateY(-230%);
+}

@@ -2,16 +2,17 @@
 
 .nav {
     max-width: 100%;
+  
     background-color: transparent;
     color: a.$co-sec;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
 
     &__warp{
         display: flex;
         // justify-content: space-between;
         align-items: center;
         width: 80%;
-        max-width:75rem;
+        max-width:100rem;
         margin: 0 auto;
     }
     &__head{
@@ -80,19 +81,36 @@
     
 }
 .dropdown-btn{
+  
     cursor: pointer;
-    background-color: transparent;
-    border: 3px solid a.$co-third;
+    background-color: a.$co-sec-br;
+    // border: 3px solid a.$co-third;
     border-radius: a.$b-rd;
     font-size:  1.8rem;
     padding: 0.5rem 1.5rem;
     color: a.$co-sec-br;
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 20rem;
+    border: none;
 }
 .dropdown-btn i{
     display: inline-block;
     transition: rotate 0.2s ease-in;
+    color:rebeccapurple;
     // transform: rotate(90deg);
+}
+.dropdown-btn span{
+    color: a.$co-pri;
+}
+.dropdown-btn img{
+    width: 4rem;
+    height: 4rem;
+    // padding: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid a.$co-pri;
 }
 .dropdown-list{
     display: none;
