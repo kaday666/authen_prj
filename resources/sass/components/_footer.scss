@@ -1,0 +1,50 @@
+@use '../abstract' as a;
+@use  '../uiti/' as b;
+footer{
+    // margin-top: 1rem;
+    background-color: a.$co-pri;
+    width: 100%;
+    padding: 2rem 0;
+    // border-top-left-radius: 3rem ;
+    // border-top-right-radius: rem ;
+    border-top: 3px solid a.$co-sec-li;
+    border-bottom: 0;
+
+    @include b.respond(mb){
+       border-radius: 0;
+       border:none;
+       border-top: 1px solid rgba(255,255,255,0.3);
+    }
+}
+footer .warp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.socialmd-list i{
+    font-size: 3rem;
+    color: a.$co-sec;
+    margin: 0 2rem;
+    background-color: rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+.socialmd-list i:hover{
+    transform: translateY(-5px);
+    color: a.$co-third;
+
+}
+.legal{
+    color: rgba(255,255,255,0.8);
+    font-size: 1.6rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+.legal a{
+    color: a.$co-third !important;
+    text-decoration: underline;
+}
+
+

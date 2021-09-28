@@ -1,0 +1,40 @@
+// 0 - 600 phone
+//600 - 900 table potrait
+// 900 - 1200 tablet landscape
+// [1200 -1800 ] normal style
+//1800 +:big desktop
+
+
+
+// $tablet-land = 60rem;
+
+
+@mixin respond($bp){
+    @if $bp == grid-st{
+        @media (max-width:70rem) {
+            @content;   
+        }
+    }
+    @if $bp == tab-land{
+        @media (max-width:60rem) {
+            @content;   
+        }
+    }
+    @if $bp == tab-pot {
+        @media (max-width:48rem) {
+            @content;   
+        }
+    }
+    @if $bp == mb-lg {
+        @media (max-width:42rem) {
+            @content;   
+        }
+    }
+    @if $bp == mb {
+        @media (max-width:38rem) {
+            @content;   
+        }
+    }
+    
+    
+}

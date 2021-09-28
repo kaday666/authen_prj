@@ -1,7 +1,4 @@
-@extends('layout.adminlayout')
-
-
-@section('content')
+<x-adminlayout>
 <table>
    
     <thead>
@@ -17,17 +14,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td data-label="Account">Visa - 3412</td>
-        <td data-label="Due Date">04/01/2016</td>
-        <td data-label="Amount">$1,190</td>
-        <td data-label="Period">03/01/2016 - 03/31/2016</td>
-        <td data-label="Amount">$1,190</td>
-        <td data-label="Period"><button class="btn-table btn-update">Update</button></td>
-        <td data-label="Amount"><button class="btn-table btn-del">Delete</button></td>
-      </tr>
+    @foreach ($users as $user)
+    <tr>
+      <td data-label="Account">{{$user->id}}</td>
+      <td data-label="Due Date">{{$user->name}}</td>
+      <td data-label="Amount">{{$user->email}}</td>
+      <td data-label="Period"><b>{{$user->isAdmin == '0' ? "false" : "true"}}</b></td>
+      <td data-label="Amount"><b>{{$user->isPremium == '0' ?  "false" : "true"}}</b></td>
+      <td data-label="Period"><a href="{{route('admin.updateUser',$user->id)}}" class="btn-table btn-update">Update</a></td>
+      <td data-label="Amount"><a href="{{route('admin.delUser',$user->id)}}" class="btn-table btn-del">Delete</a></td>
+    </tr>
+    @endforeach
+     
     
     </tbody>
-  </table>
-@endsection
-
+</table>
+</x-adminlayout>

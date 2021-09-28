@@ -1,9 +1,10 @@
 @use  '../abstract/color' as v;
 
 .showpost-sec{
+    padding:  6rem 0;
     width: 100%;
-    height: 80vh;
-    
+    min-height: 80vh;
+    background-color: v.$co-for;
     // background-color: black;
 }
 .showpost{
@@ -22,6 +23,7 @@
 }
 .showpost p{
     font-size: 2rem;
+    color:rgba(255,255,255,0.8);
 }
 .showpost p ,.showpost h1 {
     margin: 2rem 0;
@@ -32,9 +34,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:rgba(255,255,255,0.8);
+    background-color:rgba(255,255,255, 0.7);
     padding: 1rem;
     border-radius: 1rem;
+}
+.showpost .author .user span{
+    font-weight: bolder;
+    text-decoration: underline;
 }
 .btns .btn-edit,
 .btn-delete{
@@ -47,10 +53,44 @@
     margin: 0 0.5rem;
    
 }
+
 .btn-edit{
     background-color: v.$co-pri-br;
 }
 .btn-delete{
-    background-color: v.$co-sec-li;
+    background-color: v.$co-sec-br;
     color: v.$co-pri-br;
+}
+.btn-edit:visited{
+    background-color: v.$co-pri-br !important;
+
+}
+.showpost h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    position: relative;
+    padding:1rem;
+}
+.showpost h1::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.3rem;
+    
+    background-color: rgba(255,255,255,0.8);
+}
+.showpost .btn-read {
+    padding: 1.5rem 2rem;
+    margin-bottom: 0.5rem;
+    float: right;
+}
+.showpost .btn-read i{
+    margin-right:1rem;
+    font-size: 2rem ;
+    transition: transform 0.3s ease;
+}
+.showpost .btn-read:hover i{
+    transform: translateX(-2px);
 }

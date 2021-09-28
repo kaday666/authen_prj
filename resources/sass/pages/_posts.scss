@@ -1,0 +1,75 @@
+@use  '../abstract/' as c;
+.posts{
+    padding:5rem 0;
+}
+
+.post-nav{
+    width: 100%;
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-nav h2{
+    font-size: 3rem;
+    color: c.$co-third;
+    letter-spacing: 5px;
+    
+}
+.post-nav .sort a:link,
+a:visited{
+    border-radius: 1rem;
+    color: black;
+    font-weight: bold;
+    margin: 0 1rem;
+    font-size: 1.8rem;
+    background-color: c.$co-sec-br;
+    padding: 0.8rem 1.2rem;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    
+}
+.post-nav .sort .selected:link,
+.post-nav .sort .selected:visited{
+    color: c.$co-third ;
+    border: 3px solid c.$co-third;
+}
+.post-nav .sort a:hover{
+    color: c.$co-third ;
+    border: 3px solid c.$co-third;
+}
+
+.pag{
+    color: white;
+}
+.w-5{
+    color: white;
+    display: none;
+}
+
+.sort .selected:link{
+    color: c.$co-third !important;
+}
+
+.bot-nav{
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+    // height: 2rem;
+    margin-top: 1rem;
+}
+.bot-nav .btn-read{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bot-nav .btn-read i{
+    margin-right: 1rem;
+}
+
+

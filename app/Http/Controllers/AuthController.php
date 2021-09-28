@@ -79,9 +79,48 @@ class AuthController extends Controller
              back()->withErrors($val);
          }
     }
-
     public function logout(){
         Auth::logout();
         return redirect()->route("login");
+    }
+    public function post_profile(){
+        $name =request('name');
+        $email=request('email');
+        $image=request('image');
+        $old_password = request('old_password');
+        $new_password = request('new_password');
+
+        $id=auth()->user()->id;
+        $current_user=User::find($id);
+        $current_user->name=$name;
+        $current_user->email=$email;
+
+        if($image)
+        {
+            $image_name =uniqid()."_".$image->getClientOriginalName();
+
+            $image->move(public_path('img/profiles'),$image_name);
+            $current_user->image=$image_name;
+            $current_user->update();
+            return back()->with('success',"image changed");
+        }
+        if($old_password && $new_password){
+             
+            if(Hash::check($old_password,$current_user->password)){
+                $current_user->password=Hash::make($new_password);
+                $current_user->update();
+            
+                return back()->with('password',"password changed");
+
+            }
+            else{
+                return back()->with('error',"old password is not same");
+            }
+           
+        }
+        $current_user->update();
+        return back();
+
+
     }
 }

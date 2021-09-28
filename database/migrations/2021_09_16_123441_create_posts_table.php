@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
 
             $table->id();
             //first method to connect column with foregin key
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
              //second method 
             // $table->foreignId('user_id');
             // $table->foreign('user_id')->references('id')->on('users');

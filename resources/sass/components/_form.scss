@@ -35,7 +35,9 @@
     border-left: 3px solid a.$co-third;
     transition: border 0.3s;
     background-color: #e6e6e6;
+    font-size: 1.6rem;
 }   
+
 .form > div input:focus{
     outline: none   ;
     border: 3px solid a.$co-third;

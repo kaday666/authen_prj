@@ -10,23 +10,26 @@
           
                 @csrf
                 <div class="form__email form__login__email">
-                    <label for="">Username 
-                
+                    <label for="">Username <span>@error('name') {{$message}}
+                        @enderror</span>
                     </label>
                     <input type="text" name="name"  autocomplete="off"
-                    placeholder="@error('name') {{$message}}
-                                @enderror">
+                    placeholder="at least 5 character">
                 </div>
                 <div class="form__email form__login__email">
-                    <label for="">email</label>
+                    <label for="">email
+                        <span>
+                            @error('email'){{$message}}@enderror
+                        </span>
+                    </label>
                     <input type="email" name="email"  autocomplete="off"
-                    placeholder="@error('email'){{$message}}
-                @enderror">
+                    placeholder="example@gmail.com ">
                 </div>
                 <div class="form__password form__login__password"  >
-                    <label for="password">password</label>
+                    <label for="password">password <span>
+                        @error('password'){{$message}}@enderror</span></label>
                     <input type="password" name="password"  autocomplete="off"
-                    placeholder="@error('password'){{$message}}@enderror">
+                    placeholder="at least 8 characters">
                 </div>
                 <div class="form__password form__login__password"  >
                      <label for="picture" value="">

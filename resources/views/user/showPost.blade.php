@@ -18,7 +18,7 @@
                 </span>
             </div>
             <div class="btns">
-                <a href="#" class="btn btn-edit">
+                <a href="{{route("editPostById",[$post->id,auth()->user()->id])}}" class="btn btn-edit">
                     Edit
                 </a>
                 <a href="{{route("deletePostById",[$post->id,auth()->user()->id])}}" class="btn btn-delete">
@@ -26,9 +26,16 @@
                 </a>
             </div>
         </div>
-        <h1>{{$post->content_intro}}</h1>
+        <h1 class="pt">{{$post->title}}</h1>
+        <p>{{$post->content_intro}}</p>
         <p>{{$post->content_body}}</p>
         <p>{{$post->content_footer  }}</p>
+        <a href="{{route("posts")}}" class="btn btn-read">
+            <i class="fa fa-arrow-left"></i>
+            Back to the home
+        </a>
     </div>
 </section>
 @endsection
+
+

@@ -1,9 +1,6 @@
-@extends('layout.adminlayout')
+<x-adminlayout>
 
-
-@section('content')
-    
-@endsection
+</x-adminlayout>
 
 
 

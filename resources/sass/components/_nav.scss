@@ -1,54 +1,101 @@
 @use '../abstract' as a;
+@use  '../uiti' as b;
 
 .nav {
+    z-index: 1;
     max-width: 100%;
-  
-    background-color: transparent;
-    color: a.$co-sec;
-    padding: 1rem 0;
+    // margin-bottom: 5rem;
+    background-color:rgba( a.$co-for,1);
+
+    height: 5rem;
+     color: a.$co-sec;
+     border-bottom: 0.3px solid a.$co-sec-li;
+    
+     @include b.respond(tab-land){
+       background-color: transparent;
+       border: none;
+    }
+
+    // padding: 1rem 0;
+    
 
     &__warp{
+        position: relative;
+        z-index: 1000;
+        background-color:rgba( a.$co-for,1);
+        padding: 1rem 5rem;
         display: flex;
-        // justify-content: space-between;
+        box-shadow: -4px 4px 36px 3px rgba(0,0,0,0.21);
+        border: 3px solid a.$co-sec-li;
+        border-top: 0;
+        // justify-content: space-around;
         align-items: center;
-        width: 80%;
+        width: 100%;
         max-width:100rem;
         margin: 0 auto;
+        border-bottom-left-radius: 8rem ;
+    border-bottom-right-radius: 8rem ;
+    
+
+    @include b.respond(tab-land){
+        justify-content: space-between;
+        align-items: center;
     }
-    &__head{
-        background-color: a.$co-pri;
-        font-family: inherit;
-        font-size: 3rem;
-        font-weight: 300;
-        letter-spacing: 5px;
-        position: relative;
-        // text-align: center;
-        padding: 1rem 1.5rem; 
-        border-radius: a.$b-rd;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center ;
-        // margin-right: 2rem;
+    @include b.respond(mb){
+        // padding: 2rem 5rem;
+        // display: grid;
+        justify-content: space-around;
+        padding: 2rem 1rem;
+        border-radius:0;
+        border: none;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        
+       
     }
-    &__head::after{
-        content: "";
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        background-color:a.$co-third;
+
+
+    
+
+    
+    }
+    & img{
+        width: 7rem;
+        object-fit:contain;
+    }
    
-    }
     &__list{
         width: 100%;
+
         display: flex;
         list-style: none;
+     
+        position: relative;
+        z-index: 9999;
         // background-color: orange;
-        margin-left: 0.5rem;
+        margin: 0 0.3rem;
         align-items: center;
        
+    
+        @include b.respond(tab-land){
+            margin: 0;
+            background-color:rgba( a.$co-for,1);
+            width: 0%;
+       
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform: scale(0);
+            transition: all 0.3s ease-in-out;
+            overflow-y: hidden;
+            z-index: 10;
+           
+        }
+        @include b.respond(mb){
+            z-index: 100;
+        }
     }
    
     &__list__item__link:link,
@@ -56,28 +103,106 @@
         font-size: 1.7rem;
         color: a.$co-sec-br;
         transition: color all 0.2s;
-        background-color: a.$co-pri;
-        padding: 0.5rem 1.5rem;
+       
+        padding: 0.5rem 1rem;
         border-radius: a.$b-rd;
     }
     &__list__item{
-        margin: 0 0.5rem;
-
+        margin: 0 0.3rem;
+        // background-color: a.$co-pri;
         &__link:hover,
         &__link:focus{
             outline: none;
+            background-color: a.$co-pri-li;
             color: a.$co-sec-li;
         }
     }
- 
+ }
+
+ .nav.visible .nav__list{
+    // transform: scale(1);
+    transform: scale(1);
+     z-index:100;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    
+
+
+        &__item{
+            margin: 1rem 0;
+            width: 40rem;
+            
+            
+            &__link:link,
+            &__link:visited{
+                text-transform: uppercase;
+                font-size: 3rem;
+                padding: 0.5rem 3rem;
+                // padding: 1rem 4rem;
+                width: 100%;    
+                background-color:a.$co-pri-br;
+            }
+            &__link:hover{
+                background-color: a.$co-pri-li;
+            }
+        }
+
+        .btn-close{
+            display: block;
+            position: fixed;
+            top: 4rem;
+            right: 4rem;
+            font-size: 4rem;
+            opacity: 0.8;
+        }
+ }
 
 
 
+
+
+
+
+
+.btn-open{
+    display: none;
+    grid-column: 2/3;
+    // align-self: flex-end;
+    
+    // display: block;
+    @include b.respond(tab-land){
+        display: block;
+        justify-self: flex-end;
+    }
+}   
+.nav-btn{
+    border: none;
+    background-color: transparent;
+    color: a.$co-sec;
+    font-size: 2.5rem;
+    cursor: pointer;
+    
 }
+
+
+
 
 .dropdown{
     margin-left: auto;
+    grid-column: 1/2;
+    // padding-top: 0.3rem;
     // position: relative;
+    @include b.respond(tab-land){
+        margin-left: 0;
+        // margin-bottom:1rem;
+        // order: -1;
+        align-self: center;
+    }
+    @include b.respond(mb){
+        // padding-top: 1rem;
+    }
     
 }
 .dropdown-btn{
@@ -94,6 +219,11 @@
     justify-content: space-between;
     width: 20rem;
     border: none;
+    transition:  background-color 0.3s ease-in;
+}
+.dropdown-btn:hover{
+    background-color: a.$co-third;
+
 }
 .dropdown-btn i{
     display: inline-block;
@@ -104,15 +234,26 @@
 .dropdown-btn span{
     color: a.$co-pri;
 }
-.dropdown-btn img{
+.dropdown-btn .img{
     width: 4rem;
     height: 4rem;
-    // padding: 0;
+    padding: 0;
+    border-radius: 50%;
+    // border: 2px solid a.$co-pri
+    box-shadow: 0px 2px 6px 1px rgba(a.$co-third,0.75);
+
+    overflow: hidden;
+}
+.dropdown-btn img{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid a.$co-pri;
+  
 }
 .dropdown-list{
+    
     display: none;
     opacity: 0;
     border-radius: a.$b-rd;
@@ -127,6 +268,14 @@
     width: 20rem;
    
     background-color: a.$co-pri;
+    // @include b.respond(tab-land){
+    //     display: block;
+    //     opacity: 1;
+    //     top: 0;
+    //     left:  1rem;
+    //     display: flex;
+    //     // width: 100%;
+    // }
 }
 .dropdown.active .dropdown-list{
     display: block;
@@ -146,9 +295,18 @@
     padding: 2rem;
     font-size: 1.8rem;
     border:3px solid a.$co-sec-li;
+    // @include b.respond(tab-land){
+    // //   border-radius: ;
+    // }
 }
 .dropdown-link:hover,
 .dropdown-link:active{
      background-color: a.$co-sec-br;
      color: a.$co-third;
 }
+.btn-close{
+    display: none;
+}
+
+
+

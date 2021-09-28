@@ -1,11 +1,53 @@
+
+@use '../abstract' as a;
+@use  '../uiti/' as b;
+
 .login-sec{
-    height: 80vh;
+    // height: 80vh;
+   padding: 3rem 0;
     width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+    // background-color: red;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;  
+    @include b.respond(mb){
+        padding: 2rem 1rem;
+    }  
 }
 .form-login{
     width: 40rem;
     height: 30rem   ;
+    margin-top: 3rem
+}
+.intro {
+    margin-top:5rem;
+    width: 100%;
+}
+.intro h1{
+    font-size: 4rem;
+    color: white;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    margin-bottom: 1rem;
+}
+.intro h1 span:first-child{
+    font-weight: bold;
+}
+.intro h1 span:last-child{
+    color: a.$co-sec;
+}
+.intro h3{
+    font-size: 1.8em;
+    color: rgba(255,255,255 ,0.43);
+}
+.intro h3 a{
+    color: a.$co-third;
+    text-decoration: underline;
+}
+.form-login div  label span{
+    font-size: 1.3rem;
 }
