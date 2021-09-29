@@ -22,6 +22,9 @@
             <li class="side-nav__item">
                 <a href="{{route("admin.contant_messages")}}" >Contant messages</a>
             </li>
+            <li class="side-nav__item">
+                <a href="{{route("admin.recommend")}}" >Recommends</a>
+            </li>
         </ul>
         <div class="admin-do">
             {{$slot}}

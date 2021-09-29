@@ -7,8 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/style.css">
-
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+    <link href="https://unpkg.com/pattern.css" rel="stylesheet">
 
 </head>
 <body>
@@ -109,9 +108,7 @@
                 this is page is developed by <a href="#">
                     lin kaday
                 </a>
-                in the dedication and loving memory of friend 
-                who always used to talk about band when he 
-                was around me.
+                with so much love for the community.
             </p>
         </div>
     </footer>

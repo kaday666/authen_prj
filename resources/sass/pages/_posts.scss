@@ -1,6 +1,11 @@
 @use  '../abstract/' as c;
+@use  '../uiti/breakpoint' as b;
 .posts{
     padding:5rem 0;
+
+    @include b.respond(mb){
+        padding: 8rem 0;
+       }  
 }
 
 .post-nav{

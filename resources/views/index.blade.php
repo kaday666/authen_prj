@@ -49,42 +49,27 @@
 
             </section>
             <section class="recommend">
-                <h2 class="sec-head pt">
+                <h2 class="sec-head pt ">
                     Recommendation of the week
                 </h2>
+                @foreach ($recoms as $recom)
                 <div class="track">
-                    <img src="{{asset('img/card.jpg')}}" class="track__img">
+                    <img src="{{asset('img/recom/'.$recom->songimage)}}" class="track__img">
                     <div class="track__detail">
                         <p class="track__title">
-                            Title : Junya
+                            {{$recom->songname}}
                         </p>
+                        <p class="track__artist">
+                             {{$recom->songartist}}
+                         </p>
                         <p class="track__genre">
-                            Genre : hipop
+                             {{$recom->songtype}}
                         </p>
                     </div>
                 </div>
-                <div class="track">
-                    <img src="{{asset('img/card.jpg')}}" class="track__img">
-                    <div class="track__detail">
-                        <p class="track__title">
-                            Title : Junya
-                        </p>
-                        <p class="track__genre">
-                            Genre : hipop
-                        </p>
-                    </div>
-                </div>
-                <div class="track">
-                    <img src="{{asset('img/card.jpg')}}" class="track__img">
-                    <div class="track__detail">
-                        <p class="track__title">
-                            Title : Junya
-                        </p>
-                        <p class="track__genre">
-                            Genre : hipop
-                        </p>
-                    </div>
-                </div>
+                @endforeach
+                
+                
             </section>
             <section class="posts">
                 <h2 class="header pt">
@@ -131,7 +116,19 @@
                     </a> 
                 </div>
             </section>
-            
+            <section class="sub pattern-cross-dots-xl ">
+                <div class="sub-warp">
+                    <p class="sub__text ">
+                        pls subscribe with your email 
+                        to get update about 
+                        the up coming <span>artist and music news.</span>
+                    </p>
+                    <div class="sub__input">
+                        <input type="email">
+                        <button class="btn btn-sub">subscribe</button>
+                    </div>
+                </div>
+            </section>
         </main>
        
 @endsection

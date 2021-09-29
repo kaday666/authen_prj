@@ -47,7 +47,8 @@ class AuthController extends Controller
         $val = request()->validate([
             "name"=>"required",
             "email"=>"required",
-            "password"=>"required || min:8",
+            "password"=>"required || min:8 || confirmed",
+        
             "image"=>"required",
          ]);
          if($val){

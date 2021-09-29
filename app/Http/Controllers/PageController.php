@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Recommend;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +17,8 @@ class PageController extends Controller
         // Post::latest()->get();
         $posts =Post::paginate(5);
         $users =User::all();
-        return view('index',['posts'=>$posts,'users'=>$users]);
+        $recom =Recommend::all();
+        return view('index',['posts'=>$posts,'users'=>$users,'recoms'=>$recom]);
     }
    
     public function editPostById($id,$auth){
@@ -43,13 +45,13 @@ class PageController extends Controller
 
     public function posts($type = null){
         if($type == "Latest"){
-            $posts =Post::latest()->paginate(11);
+            $posts =Post::latest()->paginate(8);
             $users =User::all();
             $sel =false;
         return view('user.posts',['posts'=>$posts,'users'=>$users,'sel'=>$sel]);
         }
         else{
-            $posts =Post::paginate(11);
+            $posts =Post::paginate(8);
             $users =User::all();
             $sel =true;
         return view('user.posts',['posts'=>$posts,'users'=>$users,'sel'=>$sel]);
@@ -72,6 +74,5 @@ class PageController extends Controller
    
     
 }
-
 
 

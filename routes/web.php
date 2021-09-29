@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RecommendController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +60,10 @@ Route::middleware("auth")->group(function(){
         Route::get('/admin/manage_premium_user/update/{id}',[AdminController::class,"updateUser"])->name("admin.updateUser");
         Route::post('/admin/manage_premium_user/edit/{id}',[AdminController::class,"editUser"])->name("admin.editUser");
         Route::get('/admin/contant_messages',[AdminController::class,"contant_messages"])->name("admin.contant_messages");
+        Route::get('/admin/recommend',[RecommendController::class,"recommend"])->name("admin.recommend");
+        Route::get('/admin/recommend/update/{id}',[RecommendController::class,"recommendUpdate"])->name("admin.recommendUpdate");
+        Route::post('/admin/recommend/edit/{id}',[RecommendController::class,"recommendedit"])->name("admin.recommendedit");
+
         
     });
 

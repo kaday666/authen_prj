@@ -4,10 +4,10 @@
 
 
 @section('content')
-    <section class="create-sec">
+    <section class="create-sec ">
         <form action="{{route("post")}}" autocomplete="off" method="POST"
         enctype="multipart/form-data" class="form-create">
-            <div class="form create" >
+            <div class="pattern-grid-lg form create " >
                 @csrf
                     <div class="form__title form__login__email">
                         <label for="">Post title
