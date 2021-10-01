@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 
 class PostController extends Controller
 {
@@ -40,8 +43,17 @@ class PostController extends Controller
     }
     public function post(){
 
-        
+        // $userid = Auth()->user()->id;
+        // $userlatestpost= Post::where('user_id', $userid)->latest()->first()
+        // ;      
+        // // $lastestposttime = $userlatestpost->created_at->format('H');
+        // // $mytime = Carbon::now();
+        // // $currenttime = $mytime->toTimeString();
 
+        // // dd($lastestposttime,$currenttime);     
+        
+        
+        
         $val = request()->validate([
             "title"=>"required",
             "contentIntro"=>"required",
@@ -52,6 +64,8 @@ class PostController extends Controller
 
         if($val)
         {   
+          
+        
             $title =request('title');
           $contentIntro =request('contentIntro');
             $contentBody =request('contentBody');
