@@ -43,16 +43,22 @@ class PostController extends Controller
     }
     public function post(){
 
-        // $userid = Auth()->user()->id;
-        // $userlatestpost= Post::where('user_id', $userid)->latest()->first()
-        // ;      
-        // // $lastestposttime = $userlatestpost->created_at->format('H');
-        // // $mytime = Carbon::now();
-        // // $currenttime = $mytime->toTimeString();
+        $userid = Auth()->user()->id;
+        $userlatestpost= Post::where('user_id', $userid)->latest()->first(); 
+        // if($userlatestpost){
+        //     dd($userid);
+        // }
 
-        // // dd($lastestposttime,$currenttime);     
-        
-        
+      
+        $lastestposttime = $userlatestpost->created_at;
+        $mytime = Carbon::now();
+        $datediff = $lastestposttime->diffInDays($mytime,$lastestposttime);
+        $canpost = true;
+        if($datediff < 1){
+            $canpost = false;
+        }
+
+       $isadmin =auth()->user()->isAdmin;
         
         $val = request()->validate([
             "title"=>"required",
@@ -62,30 +68,33 @@ class PostController extends Controller
 
         ]);
 
-        if($val)
-        {   
-          
-        
-            $title =request('title');
-          $contentIntro =request('contentIntro');
-            $contentBody =request('contentBody');
-            $contentFooter=request('contentFooter');
-            $image =request('image');
-            $post = new Post();
-            $post->user_id= auth()->user()->id;
-            $post->title =$title; 
-            $image_name =uniqid()."_".$image->getClientOriginalName();
-            $image->move(public_path('img/posts/'),$image_name);
-            $post->image=$image_name;
-            $post->content_intro =$contentIntro; 
-            $post->content_body =$contentBody; 
-            $post->content_footer=$contentFooter; 
-            $post->save();
-            return redirect()->route("posts")->with("post_up","post uploaded");
-
+        if($canpost || $isadmin){
+            if($val)
+            {   
+              $title =request('title');
+              $contentIntro =request('contentIntro');
+                $contentBody =request('contentBody');
+                $contentFooter=request('contentFooter');
+                $image =request('image');
+                $post = new Post();
+                $post->user_id= auth()->user()->id;
+                $post->title =$title; 
+                $image_name =uniqid()."_".$image->getClientOriginalName();
+                $image->move(public_path('img/posts/'),$image_name);
+                $post->image=$image_name;
+                $post->content_intro =$contentIntro; 
+                $post->content_body =$contentBody; 
+                $post->content_footer=$contentFooter; 
+                $post->save();
+                return redirect()->route("posts")->with("post_up","post uploaded");
+    
+            }
+            else{
+                return back()->withErrors($val);
+            }
         }
         else{
-            return back()->withErrors($val);
+            return redirect()->route("posts")->with("post_cant","post uploaded");
         }
 
 

@@ -185,6 +185,13 @@
              swal("Oops...", "only author and admin can delete and edit the post", "error");
              </script>
               @endif
+
+
+              @if (Session("post_cant"))
+              <script>
+              swal("Oops...", "you passed your daily posted limit", "error");
+              </script>
+               @endif
 </body>
 </html>
 
