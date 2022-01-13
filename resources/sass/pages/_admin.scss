@@ -2,21 +2,25 @@
 @use  '../uiti' as b;
 
 .fl-container{
-    // background-color: lawngreen;
-    min-height: 70vh;
-    padding: 3rem;
+    min-height: 100vh;
     width: 100%;
     display: flex;
-    margin: 1rem;
+    background-color: black;
+    // align-items: center;
+    padding-top: 5rem;
 
     @include b.respond(tab-land){
-      padding: 3rem 1rem;
-      align-items: center;
-      
-  }  
+      padding: 4rem 1rem ;
+   
+    }
+    @include b.respond(mb-lg){
+      padding:5rem 1rem;
+  }
+   
 }
-.btn-table{
 
+.btn-table{
+  
     background-color: transparent;
     border-radius: 0%;
     color: c.$co-pri-br;
@@ -42,11 +46,17 @@
 }
 .side-nav{
     flex: 0 0 25%;
-    background-color: c.$co-pri;
+    // background-color: red;
+    // min-height: 100vh;
     list-style: none;
     height: fit-content;
     margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
 
+    @include b.respond(mb){
+      display: block !important;
+  }
 
     &__item{
         width: 100%;
@@ -62,17 +72,39 @@
         border: 1px solid c.$co-sec;
         // border-bottom: 1px solid c.$co-sec;
     }
+    &__item.active a:link,
+    &__item.active a:visited{
+      background-color: c.$co-pri;
+    }
+    &__item a:hover{
+      background-color: c.$co-pri;
+
+    }
 }
+
+@media screen and (max-width: 876px) {
+  .fl-container{
+     flex-direction: column;
+    //  justify-content: center;
+  }
+  .side-nav{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
 .admin-do{
     flex: 1;
-    padding-left: 0.5rem;
-   
+    align-self: baseline;
+    padding-bottom: 1rem;
 }
 
 
 
 //table
 table {
+    width: 100%;
     border: 1px solid c.$co-pri;
     border-collapse: collapse;
     margin: 0;
@@ -90,8 +122,9 @@ table {
   
   table tr {
     background-color:c.$co-sec;
-    border: 1px solid #ddd;
-    padding: .35em;
+    border: 3px solid #000;
+    padding: .50em;
+   
   }
   table th{
       color: c.$co-pri-br;
@@ -156,11 +189,7 @@ table {
     table td:last-child {
       border-bottom: 0;
     }
-    .fl-container{
-      padding: 5rem 0;
-        flex-direction: column;
-        align-items: center;
-    }
+    
   }
   
   

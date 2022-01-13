@@ -14,7 +14,7 @@
                     {{$post->user->name}}
                 </span>
                 <span class="user__time">
-                        {{$post->created_at}}
+                        {{$post->created_at->format('d-m-Y')}}
                 </span>
             </div>
             <div class="btns">
@@ -25,7 +25,15 @@
                     Delete
                 </a>
             </div>
+           
         </div>
+        
+        @if($app)
+        <a href="{{route("posts.approve",$post->id)}}" class="approve-btn">Approve</a>
+        @endif
+       
+            
+     
         <h1 class="pt">{{$post->title}}</h1>
         <p>{{$post->content_intro}}</p>
         <p>{{$post->content_body}}</p>

@@ -26,6 +26,7 @@ class CreatePostsTable extends Migration
             $table->string('content_intro');
             $table->longText('content_body');
             $table->longText('content_footer');
+            $table->boolean('pubished')->default(false);
              $table->timestamps();
         });
     }

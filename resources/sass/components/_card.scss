@@ -21,10 +21,87 @@
 }
 
 
-
-
 .card{
     grid-column: span 1;
+    transition: text-decoration 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    width: 100%;    
+    background-color: a.$co-pri;
+    border-radius: a.$b-rd;
+    padding: 1rem   ;
+    max-height: 40rem;
+   
+    display: flex;
+
+    flex-direction: column;
+
+    
+    @include b.respond(tab-pot){
+        max-height: 45rem;
+       }  
+    @include b.respond(mb-lg){
+        max-height: 50rem;
+       }  
+    
+    &__img{
+        max-width: 100%;
+        min-height: 50%;
+        overflow: hidden;
+        object-fit: contain;
+        border-radius: a.$b-rd;
+        
+    }
+    &__img img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        
+    }
+    
+    &__header{
+        font-size: 2.2rem;
+        color: white;
+        text-transform: uppercase;
+    }
+    &__info{
+        font-size: 1.6rem;
+        color: a.$co-four;
+    }
+    &__footer{
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+}
+// .card:link,
+// .card:visited{
+//     display: block !important;
+// }
+.kados{
+    grid-gap:1rem;
+    
+    width:100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    display: grid;
+    grid-template-columns:  repeat(2,minmax(35rem,40rem)) ;
+
+   
+    // @include b.respond(grid-st){
+    //     grid-template-columns: minmax(1rem,1fr) repeat(2,minmax(35rem,40rem)) minmax(1rem,1fr);
+
+    // }
+    @include b.respond(mb-lg){
+        grid-template-columns: 1fr;
+    }
+}
+
+.kado{
+    // grid-column: span 1;
     transition: text-decoration 0.3s ease;
    
     overflow: hidden;
@@ -35,6 +112,13 @@
     max-height: 40rem;
     display: flex;
     flex-direction: column;
+
+    @include b.respond(tab-pot){
+        max-height: 45rem;
+       }  
+    @include b.respond(mb-lg){
+        max-height: 50rem;
+       }  
     
     &__img{
         max-width: 100%;
@@ -69,7 +153,26 @@
 
 }
 
-.card:hover .card__header{
+
+@media screen and (max-width: 876px) {
+    .kados{
+        // max-width: 80%;
+        margin: 0 auto;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+.card:hover .card__header,
+.kado:hover .kado__header{
     text-decoration: underline;
     color: a.$co-sec-br;
 }
@@ -165,12 +268,20 @@
         grid-column: 2/3;
         font-size: 1.2rem;
         // font-weight: bold;
+
+        @include b.respond(tab-land){
+            font-size: 1.6rem;
+           }
     }
     &__name{
         grid-column: 2/3;
         font-size: 1.3rem;
         font-weight: bold;
         align-self: flex-end;
+
+        @include b.respond(tab-land){
+            font-size: 1.8rem;
+           }
         
     }
 }

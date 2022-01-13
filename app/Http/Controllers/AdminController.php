@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactMessage;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -53,4 +54,13 @@ class AdminController extends Controller
             return back()->withErrors($val);
         }
     }
+    public function pendingPost(){
+        $posts =Post::wherepubished(false)->get();
+            // $users =User::all();
+        return view('admin.pending',[
+        'posts'=>$posts,
+        // 'users'=>$users,
+      ]);
+    }
+    
 }

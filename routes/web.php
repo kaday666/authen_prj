@@ -27,11 +27,13 @@ Route::middleware("auth")->group(function(){
 
     Route::get('/', [PageController::class,"index"])->name("index");
     Route::get('/user/createPost',[PageController::class,"createPost"])->name("create");
-    Route::get('/posts/post-{id}', [PageController::class,"showPostById"])->name("showPostById");
+    Route::get('/posts/post-{id}/type-{mode}', [PageController::class,"showPostById"])->name("showPostById");
 
     Route::get('/posts/edit/{id}/{auth}', [PageController::class,"editPostById"])->name("editPostById")->middleware('postcheck');
     Route::get('/posts/{type?}', [PageController::class,"posts"])->name("posts");
    
+    //approve the post
+    Route::get('/posts/approve/{id}', [PostController::class,"approve"])->name("posts.approve");
 
     Route::get('/user/profile',[PageController::class,"profile"])->name("profile");
     Route::get('/user/createPost',[PageController::class,"createPost"])->name("create");
@@ -63,7 +65,7 @@ Route::middleware("auth")->group(function(){
         Route::get('/admin/recommend',[RecommendController::class,"recommend"])->name("admin.recommend");
         Route::get('/admin/recommend/update/{id}',[RecommendController::class,"recommendUpdate"])->name("admin.recommendUpdate");
         Route::post('/admin/recommend/edit/{id}',[RecommendController::class,"recommendedit"])->name("admin.recommendedit");
-
+        Route::get('/admin/pending',[AdminController::class,"pendingPost"])->name("admin.pending");
         
     });
 

@@ -21,13 +21,14 @@
 
     <div class="cards">
         @foreach ($posts as $post)
-        <div class="card">
+        <div class="card" >
             <div class="card__img">
                 <img src="{{asset('img/posts/'.$post->image)}}" >
             </div>
             <div class="card__body m-vsm">
                 <h3 class="card__header pt">{{$post->title}}</h3>
-                <p class="card__info m-sm">{{$post->content_intro}}
+                <p class="card__info m-sm">
+            {{Str::limit($post->content_intro,40)}}
                 </p>
             </div>
             <div class="card__footer">
@@ -37,20 +38,16 @@
                         {{$post->user->name}}
                     </span>
                     <span class="user__time">
-                            {{$post->created_at}}
+                            {{$post->created_at->format('d-m-Y')}}
                     </span>
 
                 </div>
-                <a href="{{route("showPostById",$post->id)}}" class="btn btn-read ">
+                <a href="{{route("showPostById",['id'=>$post->id,'mode'=>'normal'])}}" class="btn btn-read ">
                     Read more
                 </a>
             </div>
         </div>
-     
         @endforeach
-       
-
-       
     </div>
     <div class="bot-nav">
         {{$posts->links()}}
@@ -63,5 +60,6 @@
 
 
    </section>
+  
 @endsection
 

@@ -41,21 +41,31 @@ class PostController extends Controller
        
 
     }
+    public function approve($id){
+        $sel_post =Post::find($id);
+        $sel_post->pubished = true;
+        $sel_post->update();
+        return redirect()->route('admin.pending')->with('approve', "post approved");
+    }
     public function post(){
-
+        $canpost = true;
         $userid = Auth()->user()->id;
         $userlatestpost= Post::where('user_id', $userid)->latest()->first(); 
         // if($userlatestpost){
         //     dd($userid);
         // }
+        if(!$userlatestpost == null){
+            $lastestposttime = $userlatestpost->created_at;
 
-      
-        $lastestposttime = $userlatestpost->created_at;
-        $mytime = Carbon::now();
-        $datediff = $lastestposttime->diffInDays($mytime,$lastestposttime);
-        $canpost = true;
-        if($datediff < 1){
-            $canpost = false;
+            $mytime = Carbon::now();
+            $datediff = $lastestposttime->diffInDays($mytime,$lastestposttime);
+          
+            if($datediff < 1){
+                $canpost = false;
+            }
+        }
+        if($userlatestpost == null){
+            $canpost =true;
         }
 
        $isadmin =auth()->user()->isAdmin;

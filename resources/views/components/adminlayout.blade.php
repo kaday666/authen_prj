@@ -15,15 +15,18 @@
 
 
     <div class="fl-container">
-        <ul class="side-nav"> 
-            <li class="side-nav__item">
+         <ul class="side-nav"> 
+            <li class="{{ (request()->is('admin/manage_premium_user')) ? 'side-nav__item active' : 'side-nav__item' }}">
                 <a href="{{route("admin.manage_premium_user")}}" >Manage premium user</a>
             </li>
-            <li class="side-nav__item">
+            <li class="{{ (request()->is('admin/contant_messages')) ? 'side-nav__item active' : 'side-nav__item' }}">
                 <a href="{{route("admin.contant_messages")}}" >Contant messages</a>
             </li>
-            <li class="side-nav__item">
+            <li class="{{ (request()->is('admin/recommend')) ? 'side-nav__item active' : 'side-nav__item' }}">
                 <a href="{{route("admin.recommend")}}" >Recommends</a>
+            </li>
+            <li class="{{ (request()->is('admin/pending')) ? 'side-nav__item active' : 'side-nav__item' }}">
+                <a href="{{route("admin.pending")}}" >Pending</a>
             </li>
         </ul>
         <div class="admin-do">
@@ -67,5 +70,15 @@
     swal("yayy", "success fully delete the message", "success");
     </script>
      @endif
+
+
+     @if (Session("approve"))
+     <script>
+     swal("yayy", "post approved", "success");
+     </script>
+      @endif
 </body>
 </html>
+
+
+    

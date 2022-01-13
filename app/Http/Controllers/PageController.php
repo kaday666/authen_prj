@@ -27,10 +27,20 @@ class PageController extends Controller
     return view("user.editPost",["updata"=>$updata,"users"=>$users]);
     }
   
-    public function showPostById($id){
+    public function showPostById($id,$mode=null){
+        $app=false;
+        // dd($mode);
+        if($mode == "pending"){
+            $app = true;
+        }
         $post = Post::find($id);
         $users = User::all();
-        return view("user.showPost",["post"=>$post,"users"=>$users]);
+        return view("user.showPost",
+        [
+            "post"=>$post,
+            "users"=>$users,
+            "app"=>$app
+        ]);
     }
     
     public function createPost(){
@@ -45,13 +55,13 @@ class PageController extends Controller
 
     public function posts($type = null){
         if($type == "Latest"){
-            $posts =Post::latest()->paginate(8);
+            $posts =Post::wherepubished(true)->latest()->paginate(8);
             $users =User::all();
             $sel =false;
         return view('user.posts',['posts'=>$posts,'users'=>$users,'sel'=>$sel]);
         }
         else{
-            $posts =Post::paginate(8);
+            $posts =Post::wherepubished(true)->paginate(8);
             $users =User::all();
             $sel =true;
         return view('user.posts',['posts'=>$posts,'users'=>$users,'sel'=>$sel]);

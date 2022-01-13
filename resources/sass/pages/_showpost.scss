@@ -34,13 +34,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:rgba(255,255,255, 0.7);
+    background-color:rgba(255,255,255, 0.87);
     padding: 1rem;
     border-radius: 1rem;
 }
+.showpost .author .user__img{
+    border:2px solid v.$co-third !important;
+}
 .showpost .author .user span{
     font-weight: bolder;
-    text-decoration: underline;
+    font-size: 1.6rem;
+    // text-decoration: underline;
 }
 .btns .btn-edit,
 .btn-delete{
@@ -93,4 +97,26 @@
 }
 .showpost .btn-read:hover i{
     transform: translateX(-2px);
+}
+.approve-btn:link,
+.approve-btn:visited{
+    margin-top: 1rem;
+    color: #000;
+    width: 100%;
+    background-color: v.$co-sec;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.approve-btn:hover,
+.approve-btn:focus{
+    transform: translateY(-3px);
+    background-color: v.$co-sec-li;
+}
+.approve-btn:active{
+    transform: translateY(-1px);
 }

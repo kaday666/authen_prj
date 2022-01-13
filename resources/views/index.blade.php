@@ -97,7 +97,7 @@
                                 </span>
     
                             </div>
-                            <a href="{{route("showPostById",$post->id)}}" class="btn btn-read ">
+                            <a href="{{route("showPostById",['id'=>$post->id,'mode'=>'normal'])}}" class="btn btn-read ">
                                 Read more
                             </a>
                         </div>
@@ -132,5 +132,9 @@
         </main>
        
 @endsection
+
+
+
+
 
 

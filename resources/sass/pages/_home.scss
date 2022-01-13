@@ -96,18 +96,18 @@
     grid-template-columns: minmax(1rem,1fr) repeat(3,minmax(20rem,40rem)) minmax(1rem,1fr);
     grid-gap:2rem;
 
-    @include b.respond(tab-pot){
-        display: grid;
-        grid-template-columns: minmax(1rem,1fr) minmax(0px,50rem) minmax(1rem,1fr);
-        grid-row-gap:3rem;
-        padding: 3rem 0;
-        // background-color: black;
-    }
+    @include b.respond(mb-lg){
+     display: flex;
+     flex-direction: column;
+     padding: 4rem 3rem; 
+   }  
+   
 }
 
 .rule{
 
-    grid-column: span 1;
+    max-width: 100%;
+    width: 100%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -115,7 +115,11 @@
     flex-direction: column;
     @include b.respond(tab-pot){
         grid-column:  2/-2;
-       }  
+       } 
+       @include b.respond(mb-lg){
+        margin: 2rem 0;
+       } 
+       
     & i {
         color: rgba(c.$co-third-br,0.7);
         font-size: 5rem;
@@ -123,11 +127,14 @@
   
     &__text{
         font-size: 1.7rem;
-        margin-top: 3rem    ;
-
+        margin-top: 3rem;
+        max-width: 100%;
         @include b.respond(tab-pot){
             font-size: 2rem;
-           }  
+           }
+           @include b.respond(mb-lg){
+            margin-top: 1.5rem;
+           }   
 
      
         & span{
@@ -138,6 +145,9 @@
 }
 .rule:first-child{
     grid-column: 2/span 1;
+    @include b.respond(tab-pot){
+        grid-column: 1 / -1;
+     }  
 }
 //recommend
 .recommend{
